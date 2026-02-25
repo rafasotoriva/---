@@ -22,8 +22,6 @@ const stages = [
     button: "Continua..."
   },
   {
-    icon: "🌙",
-    text: "Podemos nos encontrar para conversar com calma?",
     final: true
   }
 ];
@@ -34,6 +32,8 @@ function renderStage() {
   const stage = stages[current];
 
   if (!stage.final) {
+    app.className = "screen dark";
+
     app.innerHTML = `
       <div class="content fade">
         <div class="icon">${stage.icon}</div>
@@ -54,12 +54,10 @@ function renderStage() {
 
 function renderFinalQuestion() {
 
-  // 👇 AQUI é onde entra o fundo clarinho
-  app.classList.remove("dark");
-  app.classList.add("question-bg");
+  app.className = "screen question-bg";
 
   app.innerHTML = `
-    <div class="content fade final-question">
+    <div class="content fade">
       <div class="icon">🌙</div>
       <h1>Podemos nos encontrar para conversar com calma?</h1>
       <div class="buttons">
@@ -72,10 +70,10 @@ function renderFinalQuestion() {
   const yesBtn = document.getElementById("yes");
   const noBtn = document.getElementById("no");
 
-  // Botão NÃO foge
-  noBtn.addEventListener("mousemove", () => {
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
+  // Botão "Não" foge suavemente
+  noBtn.addEventListener("mouseenter", () => {
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
@@ -89,8 +87,8 @@ function renderFinalQuestion() {
 }
 
 function showFinal() {
-  app.classList.remove("dark");
-  app.classList.add("light");
+
+  app.className = "screen light";
 
   app.innerHTML = `
     <div class="content fade">
