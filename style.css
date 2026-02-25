@@ -4,6 +4,8 @@ body {
   overflow: hidden;
 }
 
+/* ---------- FUNDOS ---------- */
+
 .screen {
   height: 100vh;
   display: flex;
@@ -12,15 +14,25 @@ body {
   transition: background 1.5s ease;
 }
 
+/* Escuro elegante (azul profundo, não preto) */
 .dark {
-  background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-  color: white;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #f8fafc;
 }
 
-.light {
-  background: linear-gradient(135deg, #fce4ec, #fff9c4);
-  color: #333;
+/* Fundo da pergunta (mais claro, suave) */
+.question-bg {
+  background: linear-gradient(135deg, #f8fafc, #fce7f3);
+  color: #1e293b;
 }
+
+/* Fundo final romântico */
+.light {
+  background: linear-gradient(135deg, #fff1f2, #fef9c3);
+  color: #444;
+}
+
+/* ---------- CONTEÚDO ---------- */
 
 .content {
   text-align: center;
@@ -38,6 +50,8 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* ---------- BOTÕES ---------- */
+
 button {
   margin-top: 25px;
   padding: 12px 28px;
@@ -46,12 +60,26 @@ button {
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
-  background: #d81b60;
-  color: white;
 }
 
 button:hover {
   transform: scale(1.05);
+}
+
+.next {
+  background: #ec4899;
+  color: white;
+}
+
+#yes {
+  background: #db2777;
+  color: white;
+}
+
+#no {
+  background: #e5e7eb;
+  color: #475569;
+  transition: 0.2s ease;
 }
 
 .buttons {
@@ -62,11 +90,8 @@ button:hover {
   position: relative;
 }
 
-#no {
-  background: #eee;
-  color: #666;
-  transition: 0.2s ease;
-}
+/* ---------- ANIMAÇÃO ---------- */
+
 .fade {
   animation: fadeIn 1.2s ease forwards;
 }
@@ -76,7 +101,8 @@ button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Flores caindo */
+/* ---------- FLORES ---------- */
+
 .flower {
   position: absolute;
   top: -50px;
