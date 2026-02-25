@@ -4,8 +4,9 @@ const mainContent = document.getElementById("main-content");
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 const response = document.getElementById("response");
+const container = document.querySelector(".container");
 
-// Revela a pergunta
+// Revelar conteúdo
 revealBtn.addEventListener("click", () => {
   mysteryBox.style.display = "none";
   mainContent.classList.remove("hidden");
@@ -15,26 +16,27 @@ revealBtn.addEventListener("click", () => {
     "linear-gradient(135deg, #fce4ec, #fff9c4)";
 });
 
-// Botão "Não" foge
+// Função para mover o botão "Não" DENTRO do container
 noBtn.addEventListener("mouseenter", () => {
-  const maxX = window.innerWidth - noBtn.offsetWidth;
-  const maxY = window.innerHeight - noBtn.offsetHeight;
+  const containerRect = container.getBoundingClientRect();
+
+  const maxX = containerRect.width - noBtn.offsetWidth;
+  const maxY = containerRect.height - noBtn.offsetHeight;
 
   const randomX = Math.random() * maxX;
   const randomY = Math.random() * maxY;
 
-  noBtn.style.position = "absolute";
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
 });
 
-// Ao clicar em Sim
+// Clique no Sim
 yesBtn.addEventListener("click", () => {
   document.querySelector(".buttons").style.display = "none";
 
   response.innerHTML = `
     <div style="font-size: 40px;">💖</div>
-    <h2 style="color:#d81b60;">Obrigada Linda, sabia que vc era incrível!</h2>
-    <p>Espero te ver logo, estou ansiosa!💖</p>
+    <h2 style="color:#d81b60;">Sabia que você ia dizer sim 😊</h2>
+    <p>Obrigada por me dar essa chance.</p>
   `;
 });
