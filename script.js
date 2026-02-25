@@ -2,20 +2,27 @@ const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 const response = document.getElementById("response");
 
+// Faz o botão "Não" fugir
+noBtn.addEventListener("mouseover", () => {
+  const container = document.querySelector(".container");
+  const containerRect = container.getBoundingClientRect();
+  
+  // Calcula posições aleatórias dentro do limite visível
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+});
+
+// Ação ao clicar no Sim
 yesBtn.addEventListener("click", () => {
   response.innerHTML = `
-    <h2>Obrigada Linda (não me mate)</h2>
+    <div style="font-size: 40px;">💖</div>
+    <h2>Sabia que você era incrível!</h2>
+    <p>Me avisa que horas posso passar aí? Prometo que vai valer a pena. 😊</p>
   `;
-});
-
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * 300 - 150;
-  const y = Math.random() * 300 - 150;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
-});
-
-noBtn.addEventListener("click", () => {
-  response.innerHTML = `
-    <p>Eu entendo… mas meu carinho por você continua aqui 💛</p>
-  `;
+  // Esconde os botões após o aceite
+  document.querySelector(".buttons").style.display = "none";
 });
