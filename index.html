@@ -3,33 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tenho algo para te dizer... 🌑</title>
+  <title>Para você 🌙</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Caixa de Mistério -->
-  <div id="mystery-box" class="mystery-container">
-    <div class="lock-icon">🔒</div>
-    <h2>Tenho uma pergunta importante...</h2>
-    <p>Você está pronta para ver?</p>
-    <button id="reveal-btn">Clique para revelar</button>
-  </div>
-
-  <!-- Conteúdo Principal -->
-  <div id="main-content" class="container hidden">
-    <div class="icon">✨</div>
-    <h1>Eu gosto muito de você, Linda</h1>
-    <p>Eu sei que as coisas ficaram chatas, mas queria conversar com calma. Podemos nos ver?</p>
-
-    <div class="buttons">
-      <button id="yes">Sim ❤️</button>
-      <button id="no">Não 😢</button>
+  <div id="app" class="screen dark">
+    <div class="content fade">
+      <div class="icon">🔒</div>
+      <h1>Você confia em mim?</h1>
+      <button class="next">Sim...</button>
     </div>
-
-    <div id="response"></div>
   </div>
 
   <script src="script.js"></script>
