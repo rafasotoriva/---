@@ -56,6 +56,7 @@ body {
   max-width: 400px;
   opacity: 0;
   transform: translateY(30px);
+  position: relative; /* MUITO IMPORTANTE */
 }
 
 .container.show {
@@ -81,6 +82,8 @@ body {
   display: flex;
   justify-content: center;
   gap: 15px;
+  position: relative;
+  height: 60px; /* garante espaço pro botão fugir */
 }
 
 button {
@@ -89,7 +92,7 @@ button {
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s ease;
 }
 
 #yes {
@@ -104,5 +107,7 @@ button {
 #no {
   background: #eee;
   color: #666;
-  position: relative;
+  position: absolute; /* agora ele fica dentro do container */
+  left: 50%;
+  transform: translateX(-50%);
 }
