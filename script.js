@@ -53,6 +53,11 @@ function renderStage() {
 }
 
 function renderFinalQuestion() {
+
+  // 👇 AQUI é onde entra o fundo clarinho
+  app.classList.remove("dark");
+  app.classList.add("question-bg");
+
   app.innerHTML = `
     <div class="content fade final-question">
       <div class="icon">🌙</div>
@@ -67,7 +72,7 @@ function renderFinalQuestion() {
   const yesBtn = document.getElementById("yes");
   const noBtn = document.getElementById("no");
 
-  // Botão NÃO foge do mouse
+  // Botão NÃO foge
   noBtn.addEventListener("mousemove", () => {
     const maxX = window.innerWidth - noBtn.offsetWidth;
     const maxY = window.innerHeight - noBtn.offsetHeight;
