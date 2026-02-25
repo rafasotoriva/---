@@ -1,42 +1,115 @@
-const revealBtn = document.getElementById("reveal-btn");
-const mysteryBox = document.getElementById("mystery-box");
-const mainContent = document.getElementById("main-content");
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
-const response = document.getElementById("response");
-const container = document.querySelector(".container");
+const app = document.getElementById("app");
 
-// Revelar conteúdo
-revealBtn.addEventListener("click", () => {
-  mysteryBox.style.display = "none";
-  mainContent.classList.remove("hidden");
-  mainContent.classList.add("show");
+const stages = [
+  {
+    icon: "🔒",
+    text: "Você confia em mim?",
+    button: "Sim..."
+  },
+  {
+    icon: "✨",
+    text: "Então me deixa te mostrar algo…",
+    button: "Eu quero ver"
+  },
+  {
+    icon: "🌸",
+    text: "Eu pensei muito antes de fazer isso…",
+    button: "Por quê?"
+  },
+  {
+    icon: "💌",
+    text: "Porque você é importante pra mim.",
+    button: "Continua..."
+  },
+  {
+    icon: "🌙",
+    text: "Podemos nos encontrar para conversar com calma?",
+    final: true
+  }
+];
 
-  document.body.style.background =
-    "linear-gradient(135deg, #fce4ec, #fff9c4)";
-});
+let current = 0;
 
-// Função para mover o botão "Não" DENTRO do container
-noBtn.addEventListener("mouseenter", () => {
-  const containerRect = container.getBoundingClientRect();
+function renderStage() {
+  const stage = stages[current];
 
-  const maxX = containerRect.width - noBtn.offsetWidth;
-  const maxY = containerRect.height - noBtn.offsetHeight;
+  if (!stage.final) {
+    app.innerHTML = `
+      <div class="content fade">
+        <div class="icon">${stage.icon}</div>
+        <h1>${stage.text}</h1>
+        <button class="next">${stage.button}</button>
+      </div>
+    `;
 
-  const randomX = Math.random() * maxX;
-  const randomY = Math.random() * maxY;
+    document.querySelector(".next").addEventListener("click", () => {
+      current++;
+      renderStage();
+    });
 
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
-});
+  } else {
+    renderFinalQuestion();
+  }
+}
 
-// Clique no Sim
-yesBtn.addEventListener("click", () => {
-  document.querySelector(".buttons").style.display = "none";
-
-  response.innerHTML = `
-    <div style="font-size: 40px;">💖</div>
-    <h2 style="color:#d81b60;">Sabia que você ia dizer sim 😊</h2>
-    <p>Obrigada por me dar essa chance.</p>
+function renderFinalQuestion() {
+  app.innerHTML = `
+    <div class="content fade final-question">
+      <div class="icon">🌙</div>
+      <h1>Podemos nos encontrar para conversar com calma?</h1>
+      <div class="buttons">
+        <button id="yes">Sim ❤️</button>
+        <button id="no">Não 😢</button>
+      </div>
+    </div>
   `;
-});
+
+  const yesBtn = document.getElementById("yes");
+  const noBtn = document.getElementById("no");
+
+  // Botão NÃO foge do mouse
+  noBtn.addEventListener("mousemove", () => {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+  });
+
+  yesBtn.addEventListener("click", showFinal);
+}
+
+function showFinal() {
+  app.classList.remove("dark");
+  app.classList.add("light");
+
+  app.innerHTML = `
+    <div class="content fade">
+      <div class="icon">🌷</div>
+      <h1>Obrigada por me encontrar.</h1>
+      <p>Eu prometo que vai ser leve, sincero e com carinho.</p>
+    </div>
+  `;
+
+  startFlowers();
+}
+
+function startFlowers() {
+  setInterval(() => {
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerText = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 10000);
+  }, 500);
+}
+
+renderStage();
