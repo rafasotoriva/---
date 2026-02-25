@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tenho algo para te dizer... 🌑</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Caixa de Mistério -->
   <div id="mystery-box" class="mystery-container">
     <div class="lock-icon">🔒</div>
     <h2>Tenho uma pergunta importante...</h2>
@@ -16,7 +18,8 @@
     <button id="reveal-btn">Clique para revelar</button>
   </div>
 
-  <div id="main-content" class="container hidden" style="display: none;">
+  <!-- Conteúdo Principal -->
+  <div id="main-content" class="container hidden">
     <div class="icon">✨</div>
     <h1>Eu gosto muito de você, Linda</h1>
     <p>Eu sei que as coisas ficaram chatas, mas queria conversar com calma. Podemos nos ver?</p>
@@ -29,43 +32,6 @@
     <div id="response"></div>
   </div>
 
-  <script>
-    const revealBtn = document.getElementById("reveal-btn");
-    const mysteryBox = document.getElementById("mystery-box");
-    const mainContent = document.getElementById("main-content");
-    const yesBtn = document.getElementById("yes");
-    const noBtn = document.getElementById("no");
-    const response = document.getElementById("response");
-
-    // Função para revelar a pergunta
-    revealBtn.addEventListener("click", () => {
-      mysteryBox.style.display = "none"; // Esconde o suspense
-      mainContent.style.display = "block"; // Mostra o convite
-      mainContent.classList.remove("hidden");
-      mainContent.classList.add("show");
-      // Muda o fundo para algo mais leve
-      document.body.style.background = "linear-gradient(135deg, #fce4ec, #fff9c4)";
-    });
-
-    // Faz o botão "Não" fugir
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-      
-      noBtn.style.position = "absolute";
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-    });
-
-    // Mensagem final ao clicar no Sim
-    yesBtn.addEventListener("click", () => {
-      response.innerHTML = `
-        <h2 style="color: #d81b60; margin-top: 20px;">Sabia que aceitaria! 😊</h2>
-        <p>Me avisa quando podemos nos ver, estou ansiosa! ❤️</p>
-      `;
-      document.querySelector(".buttons").style.display = "none";
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
