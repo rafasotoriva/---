@@ -4,45 +4,42 @@ body {
   overflow: hidden;
 }
 
-/* ---------- FUNDOS ---------- */
-
 .screen {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 1.5s ease;
+  transition: background 1.2s ease;
+  position: relative;
 }
 
-/* Escuro elegante (azul profundo, não preto) */
+/* Fundo inicial elegante */
 .dark {
   background: linear-gradient(135deg, #1e293b, #334155);
   color: #f8fafc;
 }
 
-/* Fundo da pergunta (mais claro, suave) */
+/* Fundo pergunta */
 .question-bg {
   background: linear-gradient(135deg, #f8fafc, #fce7f3);
   color: #1e293b;
 }
 
-/* Fundo final romântico */
+/* Fundo final */
 .light {
   background: linear-gradient(135deg, #fff1f2, #fef9c3);
   color: #444;
 }
 
-/* ---------- CONTEÚDO ---------- */
-
 .content {
   text-align: center;
   max-width: 500px;
   padding: 30px;
+  position: relative;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-weight: 500;
 }
 
 .icon {
@@ -50,10 +47,17 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* ---------- BOTÕES ---------- */
+/* BOTÕES */
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
 
 button {
-  margin-top: 25px;
   padding: 12px 28px;
   border-radius: 30px;
   border: none;
@@ -79,29 +83,21 @@ button:hover {
 #no {
   background: #e5e7eb;
   color: #475569;
-  transition: 0.2s ease;
+  position: relative; /* COMEÇA NORMAL */
 }
 
-.buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: relative;
-}
-
-/* ---------- ANIMAÇÃO ---------- */
+/* ANIMAÇÃO */
 
 .fade {
-  animation: fadeIn 1.2s ease forwards;
+  animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- FLORES ---------- */
+/* FLORES */
 
 .flower {
   position: absolute;
