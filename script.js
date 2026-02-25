@@ -1,4 +1,4 @@
-const yesBtn = document.getElementById("yes");
+tou cconst yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 const response = document.getElementById("response");
 
@@ -21,7 +21,7 @@ yesBtn.addEventListener("click", () => {
   response.innerHTML = `
     <div style="font-size: 40px;">💖</div>
     <h2>Sabia que você era incrível!</h2>
-    <p>Me avisa que horas posso passar aí? Prometo que vai valer a pena. 😊</p>
+    <p>Estou ansiosa para te ver!<p>
   `;
   // Esconde os botões após o aceite
   document.querySelector(".buttons").style.display = "none";
