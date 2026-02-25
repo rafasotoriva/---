@@ -54,6 +54,19 @@ button:hover {
   transform: scale(1.05);
 }
 
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+#no {
+  background: #eee;
+  color: #666;
+  transition: 0.2s ease;
+}
 .fade {
   animation: fadeIn 1.2s ease forwards;
 }
